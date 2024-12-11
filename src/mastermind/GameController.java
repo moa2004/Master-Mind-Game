@@ -1,28 +1,21 @@
 package mastermind;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
 public class GameController {
-
     private static final int CODE_LENGTH = 4;
     private static final int MAX_ATTEMPTS = 10;
-
     private List<Color> colors = Arrays.asList(
             Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW, Color.PURPLE, Color.ORANGE
-
     );
     private List<Color> secretCode;
     private int attempts;
@@ -43,7 +36,6 @@ public class GameController {
 
     public VBox createGameLayout() {
         mainLayout = new VBox(20);
-        mainLayout.setPadding(new Insets(20));
         mainLayout.setAlignment(Pos.CENTER);
         timerLabel = new Label("00:00");
         timerLabel.setId("timerLabel");
@@ -64,14 +56,13 @@ public class GameController {
             Button colorButton = new Button("Pick Color");
             colorButton.setPrefSize(120, 50);
             colorButton.setId("colorButton");
-            final int index = i;
+            int index = i;
             colorButton.setOnAction(e -> pickColor(colorButton, index));
             guessGrid.add(colorButton, i, 0);
         }
         Button submitButton = new Button("Submit Guess");
         submitButton.setId("submitButton");
         submitButton.setOnAction(e -> submitGuess());
-
         feedbackLabel = new Label();
         feedbackLabel.setFont(new javafx.scene.text.Font("Arial", 14));
         feedbackLabel.setTextFill(Color.WHITE);
@@ -116,7 +107,6 @@ public class GameController {
         int r = (int) (color.getRed() * 255);
         int g = (int) (color.getGreen() * 255);
         int b = (int) (color.getBlue() * 255);
-
         return String.format("#%02X%02X%02X", r, g, b);
     }
     private void submitGuess() {

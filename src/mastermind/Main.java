@@ -1,10 +1,7 @@
 package mastermind;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -17,11 +14,12 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         GameController controller = new GameController();
         controller.startTimer();
+        primaryStage.setResizable(false);
         VBox layout = controller.createGameLayout();
         Scene scene = new Scene(layout, 800, 600);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/mastermind/mastermind.css")).toExternalForm());
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/mastermind/pixelcut-export-min.png"))));
-        primaryStage.setTitle("Mastermind Game");
+        primaryStage.setTitle("Mastermind Game - With Syntax Error Team ❤");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
